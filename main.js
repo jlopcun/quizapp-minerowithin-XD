@@ -30,15 +30,19 @@ solutions.forEach(sol=>
     )
    let minero = new Audio('elrubiusOMG - Minero ft. StarkinDJ Lyrics_Letra (320 kbps).mp3');
    let isPaused = true;
-window.addEventListener('keypress',(e)=>{
-    if(e.code==='Space' && isPaused===true){
+   const playstop = document.getElementById('playstop');
+   playstop.addEventListener('click',()=>{
+    if( isPaused===true){
         minero.play();
         isPaused=false;
     }
-    else if(e.code==='Space' && isPaused===false){
+    else if(isPaused===false){
         minero.pause();
         isPaused=true;
     }
+   })
+window.addEventListener('keypress',(e)=>{
+   if(e.code==='Space') playstop.click();
 });
 
 
